@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Narjot Jewellers – Timeless Gold & Diamond Jewellery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C8973A;
+      --gold-light: #E8C97A;
+      --gold-pale:  #F9F2E3;
+      --onyx:       #0E0D0B;
+      --charcoal:   #1C1A16;
+      --stone:      #5A5248;
+      --cream:      #FAF6EE;
+      --white:      #FFFFFF;
+      --serif:      'Cormorant Garamond', serif;
+      --sans:       'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--onyx);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce {
+      background: var(--onyx);
+      color: var(--gold-light);
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 9px 16px;
+      text-transform: uppercase;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,246,238,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,151,58,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6vw;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      line-height: 1;
+    }
+    .nav-logo .name {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--onyx);
+      letter-spacing: 0.04em;
+    }
+    .nav-logo .tagline {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.25s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--onyx);
+      color: var(--gold-light) !important;
+      padding: 9px 20px;
+      border-radius: 2px;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.16em !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--onyx) !important; }
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--onyx); transition: 0.3s; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8vh 6vw 8vh 8vw;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--onyx);
+      margin-bottom: 1.6rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-desc {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--stone);
+      max-width: 400px;
+      margin-bottom: 2.8rem;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--onyx);
+      padding: 14px 32px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--onyx); color: var(--gold-light); }
+    .btn-outline {
+      background: transparent;
+      color: var(--onyx);
+      padding: 13px 32px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid var(--onyx);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--onyx); color: var(--gold-light); }
+
+    /* hero stats */
+    .hero-stats {
+      display: flex;
+      gap: 2.4rem;
+      margin-top: 3.6rem;
+      padding-top: 2.4rem;
+      border-top: 1px solid rgba(200,151,58,0.2);
+    }
+    .stat-val {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-family: var(--sans);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      color: var(--stone);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    /* decorative mosaic of gold panels */
+    .hero-mosaic {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+    }
+    .mosaic-cell {
+      overflow: hidden;
+      position: relative;
+    }
+    .mosaic-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .mosaic-cell:hover img { transform: scale(1.05); }
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(14,13,11,0.15) 0%, transparent 60%);
+    }
+    /* gold shimmer accent line */
+    .shimmer-line {
+      position: absolute;
+      left: -4px; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--gold-light), var(--gold), var(--gold-light));
+      z-index: 3;
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--onyx);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(2rem, 6vw, 6rem);
+      padding: 22px 6vw;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: rgba(232,201,122,0.8);
+      text-transform: uppercase;
+    }
+    .trust-icon {
+      width: 22px;
+      height: 22px;
+      fill: var(--gold);
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.6rem;
+    }
+    .section-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.66rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--onyx);
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-rule {
+      width: 56px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.4rem auto 0;
+    }
+
+    /* ── COLLECTIONS ── */
+    .collections { padding: 7rem 6vw; background: var(--cream); }
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .col-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+    }
+    .col-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+    }
+    .col-card:hover img { transform: scale(1.06); }
+    .col-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,13,11,0.75) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem 1.6rem;
+      transition: background 0.4s;
+    }
+    .col-card:hover .col-overlay { background: linear-gradient(to top, rgba(14,13,11,0.88) 0%, transparent 55%); }
+    .col-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .col-sub {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s, transform 0.35s;
+    }
+    .col-card:hover .col-sub { opacity: 1; transform: translateY(0); }
+    /* featured card spans 2 rows */
+    .col-card.featured { grid-row: span 2; aspect-ratio: unset; }
+
+    /* ── BESTSELLERS ── */
+    .bestsellers { padding: 7rem 6vw; background: var(--white); }
+    .products-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .product-card { cursor: pointer; }
+    .product-img {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--gold-pale);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-img img { transform: scale(1.07); }
+    .product-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--gold);
+      color: var(--onyx);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      font-family: var(--sans);
+    }
+    .product-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--onyx);
+      margin-bottom: 4px;
+    }
+    .product-meta {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--stone);
+      text-transform: uppercase;
+    }
+    .products-cta { text-align: center; margin-top: 3rem; }
+
+    /* ── GOLD PURITY BANNER ── */
+    .purity-banner {
+      background: var(--onyx);
+      padding: 5.5rem 6vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .purity-left {}
+    .purity-karat {
+      font-family: var(--serif);
+      font-size: clamp(5rem, 10vw, 9rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+    }
+    .purity-karat span {
+      font-size: 0.25em;
+      vertical-align: top;
+      margin-top: 0.6em;
+      display: inline-block;
+      font-weight: 400;
+    }
+    .purity-title {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.3;
+      margin-top: 1rem;
+    }
+    .purity-right p {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 2;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2rem;
+    }
+    .purity-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .purity-feat {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: rgba(232,201,122,0.85);
+      text-transform: uppercase;
+    }
+    .purity-feat::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── WHY US ── */
+    .why { padding: 7rem 6vw; background: var(--gold-pale); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4rem;
+    }
+    .why-card {
+      text-align: center;
+      padding: 2.4rem 1.4rem;
+      background: var(--white);
+      border-top: 2px solid var(--gold);
+    }
+    .why-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1.2rem;
+    }
+    .why-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--onyx);
+      margin-bottom: 0.6rem;
+    }
+    .why-desc {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--stone);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { padding: 7rem 6vw; background: var(--white); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .testi-card {
+      padding: 2.4rem;
+      border: 1px solid rgba(200,151,58,0.2);
+      background: var(--cream);
+      position: relative;
+    }
+    .testi-quote {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .testi-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 0.7rem; }
+    .testi-name {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--onyx);
+      font-weight: 500;
+    }
+
+    /* ── CONTACT / VISIT US ── */
+    .visit { padding: 7rem 6vw; background: var(--cream); }
+    .visit-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .visit-info {}
+    .visit-info p {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 2;
+      color: var(--stone);
+      margin-bottom: 2.4rem;
+    }
+    .contact-rows { display: flex; flex-direction: column; gap: 1.4rem; }
+    .contact-row { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-row-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-row-icon svg { width: 16px; height: 16px; fill: var(--onyx); }
+    .contact-row-text {}
+    .contact-row-label {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .contact-row-val {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--onyx);
+      line-height: 1.55;
+    }
+    .contact-row-val a { color: var(--onyx); text-decoration: none; }
+    .contact-row-val a:hover { color: var(--gold); }
+    /* map placeholder */
+    .map-box {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border: 1px solid rgba(200,151,58,0.25);
+    }
+    .map-box iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--onyx);
+      padding: 4rem 6vw 2rem;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--sans);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(200,151,58,0.15);
+    }
+    .footer-brand .name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-brand .tagline {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .footer-brand p {
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-col-title {
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+    .footer-col ul a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      font-size: 0.72rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--gold-light); }
+
+    /* ── MOBILE NAV ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 1.5rem 6vw 2rem;
+        border-bottom: 1px solid rgba(200,151,58,0.15);
+        gap: 1.4rem;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 55vw; }
+      .shimmer-line { display: none; }
+      .collections-grid { grid-template-columns: 1fr 1fr; }
+      .col-card.featured { grid-row: span 1; aspect-ratio: 3/4; }
+      .products-row { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .visit-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .purity-banner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 500px) {
+      .collections-grid { grid-template-columns: 1fr; }
+      .products-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left > * {
+      animation: fadeUp 0.75s both;
+    }
+    .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.46s; }
+    .hero-left > *:nth-child(5) { animation-delay: 0.58s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-left > *, .col-card img, .product-img img, .mosaic-cell img { animation: none; transition: none; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+
+    /* ══════════════════════════════════════════════
+       APPLE-STYLE SCROLL REVEAL SYSTEM
+       ══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.94); transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1); }
+    .reveal-scale.in-view { opacity: 1; transform: scale(1); }
+    .stagger > * { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .stagger.in-view > *:nth-child(1) { transition-delay: 0.02s; }
+    .stagger.in-view > *:nth-child(2) { transition-delay: 0.10s; }
+    .stagger.in-view > *:nth-child(3) { transition-delay: 0.18s; }
+    .stagger.in-view > *:nth-child(4) { transition-delay: 0.26s; }
+    .stagger.in-view > *:nth-child(5) { transition-delay: 0.34s; }
+    .stagger.in-view > *:nth-child(6) { transition-delay: 0.42s; }
+    .stagger.in-view > * { opacity: 1; transform: translateY(0); }
+
+    .col-card img, .product-img img, .mosaic-cell img, .nav-links a::after,
+    .btn-primary, .btn-outline, .why-card, .offer-card, .rate-tab, .tryon-thumb {
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .why-card { transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), box-shadow 0.55s; }
+    .why-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(14,13,11,0.08); }
+    .hero-mosaic { transition: transform 0.1s linear; }
+
+    /* MINIMUM MAKING CHARGES STRIP */
+    .making-strip {
+      background: linear-gradient(90deg, var(--gold-pale) 0%, var(--cream) 100%);
+      border-top: 1px solid rgba(200,151,58,0.25);
+      border-bottom: 1px solid rgba(200,151,58,0.25);
+      padding: 1.4rem 6vw;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      flex-wrap: wrap; text-align: center;
+    }
+    .making-strip .tag {
+      background: var(--onyx); color: var(--gold-light);
+      font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 5px 12px;
+    }
+    .making-strip p { font-family: var(--serif); font-size: 1.05rem; color: var(--onyx); font-weight: 400; }
+    .making-strip p em { color: var(--gold); font-style: italic; font-weight: 600; }
+
+    /* GOLD RATE TICKER SECTION */
+    .rates { padding: 7rem 6vw; background: var(--onyx); }
+    .rates .section-eyebrow { color: var(--gold-light); }
+    .rates .section-title { color: var(--white); }
+    .rate-tabs { display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 2.6rem; flex-wrap: wrap; }
+    .rate-tab {
+      background: transparent; border: 1px solid rgba(232,201,122,0.3); color: rgba(255,255,255,0.6);
+      font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 10px 22px; cursor: pointer; transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .rate-tab:hover { border-color: var(--gold); color: var(--gold-light); }
+    .rate-tab.active { background: var(--gold); border-color: var(--gold); color: var(--onyx); font-weight: 500; }
+    .rate-panel { display: none; }
+    .rate-panel.active { display: block; animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+    .rate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(232,201,122,0.15); margin-bottom: 1.6rem; }
+    .rate-card { background: var(--charcoal); padding: 2.2rem 1.6rem; text-align: center; }
+    .rate-karat { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.16em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.8rem; }
+    .rate-val { font-family: var(--serif); font-size: 2.1rem; font-weight: 300; color: var(--white); }
+    .rate-val small { font-size: 0.95rem; color: rgba(255,255,255,0.4); }
+    .rate-unit { font-family: var(--sans); font-size: 0.66rem; color: rgba(255,255,255,0.4); margin-top: 0.4rem; letter-spacing: 0.08em; }
+    .rate-meta { display: flex; justify-content: center; align-items: center; gap: 10px; font-family: var(--sans); font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; }
+    .rate-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 8px #4ADE80; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .rate-disclaimer { text-align: center; font-family: var(--sans); font-size: 0.66rem; color: rgba(255,255,255,0.3); margin-top: 1.2rem; }
+
+    /* MONTHLY OFFERS */
+    .offers { padding: 7rem 6vw; background: var(--gold-pale); }
+    .offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .offer-card { background: var(--white); padding: 2.6rem 2rem; position: relative; overflow: hidden; transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), box-shadow 0.55s; }
+    .offer-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(14,13,11,0.1); }
+    .offer-badge {
+      position: absolute; top: 0; right: 0; background: var(--onyx); color: var(--gold-light);
+      font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 6px 16px 6px 20px; clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .offer-icon { font-family: var(--serif); font-size: 2.6rem; color: var(--gold); margin-bottom: 1rem; }
+    .offer-title { font-family: var(--serif); font-size: 1.35rem; color: var(--onyx); margin-bottom: 0.7rem; }
+    .offer-desc { font-family: var(--sans); font-size: 0.84rem; line-height: 1.75; color: var(--stone); font-weight: 300; margin-bottom: 1.4rem; }
+    .offer-countdown { display: flex; gap: 10px; border-top: 1px solid rgba(200,151,58,0.25); padding-top: 1.2rem; }
+    .offer-countdown div { text-align: center; flex: 1; }
+    .cd-num { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); }
+    .cd-lbl { font-family: var(--sans); font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); }
+
+    /* GOLD EXCHANGE CALCULATOR */
+    .exchange { padding: 7rem 6vw; background: var(--white); }
+    .exchange-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
+    .exchange-steps { display: flex; flex-direction: column; gap: 1.8rem; margin-top: 2rem; }
+    .ex-step { display: flex; gap: 18px; align-items: flex-start; }
+    .ex-step-num {
+      font-family: var(--serif); font-size: 1.3rem; color: var(--gold);
+      border: 1px solid var(--gold); width: 42px; height: 42px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ex-step-title { font-family: var(--serif); font-size: 1.05rem; color: var(--onyx); margin-bottom: 0.3rem; }
+    .ex-step-desc { font-family: var(--sans); font-size: 0.8rem; color: var(--stone); line-height: 1.7; font-weight: 300; }
+    .ex-calc { background: var(--gold-pale); padding: 2.6rem; border-top: 3px solid var(--gold); }
+    .ex-calc h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--onyx); margin-bottom: 1.6rem; font-weight: 400; }
+    .ex-field { margin-bottom: 1.3rem; }
+    .ex-field label { display: block; font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.5rem; }
+    .ex-field input, .ex-field select {
+      width: 100%; padding: 12px 14px; border: 1px solid rgba(200,151,58,0.35);
+      background: var(--white); font-family: var(--sans); font-size: 0.9rem; color: var(--onyx);
+      transition: border-color 0.3s;
+    }
+    .ex-field input:focus, .ex-field select:focus { outline: none; border-color: var(--gold); }
+    .ex-result { margin-top: 1.6rem; padding: 1.6rem; background: var(--onyx); text-align: center; }
+    .ex-result-lbl { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,201,122,0.7); margin-bottom: 0.5rem; }
+    .ex-result-val { font-family: var(--serif); font-size: 2.2rem; color: var(--gold-light); font-weight: 300; }
+    .ex-note { font-family: var(--sans); font-size: 0.68rem; color: var(--stone); margin-top: 1rem; line-height: 1.6; text-align: center; }
+
+    /* VIRTUAL TRY-ON */
+    .tryon { padding: 7rem 6vw; background: var(--charcoal); }
+    .tryon .section-eyebrow { color: var(--gold-light); }
+    .tryon .section-title { color: var(--white); }
+    .tryon-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: start; }
+    .tryon-stage {
+      position: relative; aspect-ratio: 4/5;
+      background: #14120F repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0 10px, transparent 10px 20px);
+      border: 1px solid rgba(232,201,122,0.18); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tryon-stage img.tryon-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tryon-placeholder { text-align: center; color: rgba(255,255,255,0.35); font-family: var(--sans); font-size: 0.82rem; padding: 2rem; line-height: 1.8; }
+    .tryon-placeholder svg { width: 44px; height: 44px; margin-bottom: 1rem; opacity: 0.5; }
+    .tryon-overlay {
+      position: absolute; width: 130px; cursor: grab; touch-action: none;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4)); user-select: none; transform-origin: center;
+    }
+    .tryon-overlay:active { cursor: grabbing; }
+    .tryon-overlay img { width: 100%; display: block; pointer-events: none; }
+    .tryon-upload-btn {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--onyx); border: none;
+      font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 11px 24px; cursor: pointer; transition: background 0.3s;
+    }
+    .tryon-upload-btn:hover { background: var(--gold-light); }
+    .tryon-panel { color: rgba(255,255,255,0.7); }
+    .tryon-panel p.lead { font-family: var(--sans); font-size: 0.88rem; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; color: rgba(255,255,255,0.55); }
+    .tryon-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 2rem; }
+    .tryon-thumb {
+      aspect-ratio: 1; background: var(--onyx); border: 1px solid rgba(232,201,122,0.2);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1); padding: 10px;
+    }
+    .tryon-thumb img { width: 100%; opacity: 0.85; transition: opacity 0.3s; }
+    .tryon-thumb:hover, .tryon-thumb.active { border-color: var(--gold); background: rgba(200,151,58,0.1); }
+    .tryon-thumb:hover img, .tryon-thumb.active img { opacity: 1; }
+    .tryon-controls { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 1.6rem; }
+    .tryon-controls label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .tryon-controls input[type="range"] { width: 100%; accent-color: var(--gold); }
+    .tryon-actions { display: flex; gap: 12px; }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">✦ Now accepting custom jewellery orders · 22 Karat Hallmarked Gold ✦</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="name">Narjot Jewellers</span>
+    <span class="tagline">Est. 1979 · Pure Gold & Diamonds · Punjab</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#offers">Offers</a></li>
+    <li><a href="#rates">Gold Rates</a></li>
+    <li><a href="#exchange">Exchange</a></li>
+    <li><a href="#tryon">Try-On</a></li>
+    <li><a href="#contact" class="nav-cta">Visit Us</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Since 1979 · Pure 22 Karat Gold · Punjab's Finest</p>
+    <h1>Crafted for <em>Moments</em><br>That Last Forever</h1>
+    <p class="hero-desc">From elegant gold necklaces to sparkling diamond rings — every piece at Narjot Jewellers is chosen for its purity, beauty, and the stories it carries.</p>
+    <div class="hero-actions">
+      <a href="#collections" class="btn-primary">Explore Collections</a>
+      <a href="#contact" class="btn-outline">Visit Our Store</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">22K</div>
+        <div class="stat-lbl">Hallmark Gold</div>
+      </div>
+      <div>
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">Certified Diamonds</div>
+      </div>
+      <div>
+        <div class="stat-val">1979</div>
+        <div class="stat-lbl">Serving Punjab Since</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="shimmer-line"></div>
+    <div class="hero-mosaic">
+      <div class="mosaic-cell">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80" alt="Gold necklace">
+        <div class="mosaic-overlay"></div>
+      </div>
+      <div class="mosaic-cell">
+        <img src="https://images.unsplash.com/photo-1629224316810-9d8805b95e76?w=600&q=80" alt="Diamond ring">
+        <div class="mosaic-overlay"></div>
+      </div>
+      <div class="mosaic-cell">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80" alt="Gold bracelet">
+        <div class="mosaic-overlay"></div>
+      </div>
+      <div class="mosaic-cell">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80" alt="Gold earrings">
+        <div class="mosaic-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    BIS Hallmarked Gold
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m-4 8a9 9 0 110-18 9 9 0 010 18z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+    Certified Diamonds
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M4 7v10l8 4 8-4V7L12 3 4 7zm8 14V11m0 0L4 7m8 4l8-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+    Custom Orders Welcome
+  </div>
+  <div class="trust-item">
+    <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+    Trusted Since Decades
+  </div>
+</div>
+
+<!-- MINIMUM MAKING CHARGES -->
+<div class="making-strip reveal">
+  <span class="tag">Limited Time</span>
+  <p>Making charges starting at just <em>8%</em> — the lowest in the region, on every certified piece.</p>
+</div>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Our Collections</p>
+    <h2 class="section-title">Jewellery for Every <em>Occasion</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="collections-grid stagger">
+    <div class="col-card featured">
+      <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80" alt="Gold Necklaces"/>
+      <div class="col-overlay">
+        <div class="col-name">Gold Necklaces</div>
+        <div class="col-sub">Explore Collection →</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?w=600&q=80" alt="Diamond Rings"/>
+      <div class="col-overlay">
+        <div class="col-name">Diamond Rings</div>
+        <div class="col-sub">Explore Collection →</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80" alt="Gold Bracelets"/>
+      <div class="col-overlay">
+        <div class="col-name">Gold Bracelets</div>
+        <div class="col-sub">Explore Collection →</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80" alt="Gold Hoops"/>
+      <div class="col-overlay">
+        <div class="col-name">Gold Hoops & Earrings</div>
+        <div class="col-sub">Explore Collection →</div>
+      </div>
+    </div>
+    <div class="col-card">
+      <img src="https://images.unsplash.com/photo-1601121141461-9d6647bef0a1?w=600&q=80" alt="Bangles"/>
+      <div class="col-overlay">
+        <div class="col-name">Bangles & Sets</div>
+        <div class="col-sub">Explore Collection →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY OFFERS -->
+<section class="offers" id="offers">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Limited Time</p>
+    <h2 class="section-title">This Month's <em>Exclusive Offers</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="offers-grid stagger">
+    <div class="offer-card">
+      <span class="offer-badge">Popular</span>
+      <div class="offer-icon">8%</div>
+      <div class="offer-title">Festive Making Charge Discount</div>
+      <div class="offer-desc">Flat 8% making charges on all gold necklaces and bangles this month — our lowest rate of the year.</div>
+      <div class="offer-countdown" data-countdown></div>
+    </div>
+    <div class="offer-card">
+      <span class="offer-badge">New</span>
+      <div class="offer-icon">+5%</div>
+      <div class="offer-title">Bonus on Gold Exchange</div>
+      <div class="offer-desc">Trade in your old gold this month and get an extra 5% value over the standard exchange rate.</div>
+      <div class="offer-countdown" data-countdown></div>
+    </div>
+    <div class="offer-card">
+      <span class="offer-badge">Bridal</span>
+      <div class="offer-icon">0%</div>
+      <div class="offer-title">Zero Making Charges — Bridal Sets</div>
+      <div class="offer-desc">Book a bridal set above 50g this month and we waive making charges entirely. Limited slots available.</div>
+      <div class="offer-countdown" data-countdown></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE GOLD RATES -->
+<section class="rates" id="rates">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Updated Live</p>
+    <h2 class="section-title">Today's <em>Gold Rates</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="reveal">
+    <div class="rate-tabs">
+      <button class="rate-tab active" data-market="india">India (₹/10g)</button>
+      <button class="rate-tab" data-market="dubai">Dubai (AED/g)</button>
+      <button class="rate-tab" data-market="usa">USA ($/oz)</button>
+      <button class="rate-tab" data-market="uk">UK (£/oz)</button>
+    </div>
+
+    <div class="rate-panel active" data-panel="india">
+      <div class="rate-grid">
+        <div class="rate-card"><div class="rate-karat">24K Gold</div><div class="rate-val" id="rate-india-24">—</div><div class="rate-unit">per 10 grams</div></div>
+        <div class="rate-card"><div class="rate-karat">22K Gold</div><div class="rate-val" id="rate-india-22">—</div><div class="rate-unit">per 10 grams</div></div>
+        <div class="rate-card"><div class="rate-karat">18K Gold</div><div class="rate-val" id="rate-india-18">—</div><div class="rate-unit">per 10 grams</div></div>
+      </div>
+    </div>
+    <div class="rate-panel" data-panel="dubai">
+      <div class="rate-grid">
+        <div class="rate-card"><div class="rate-karat">24K Gold</div><div class="rate-val" id="rate-dubai-24">—</div><div class="rate-unit">per gram</div></div>
+        <div class="rate-card"><div class="rate-karat">22K Gold</div><div class="rate-val" id="rate-dubai-22">—</div><div class="rate-unit">per gram</div></div>
+        <div class="rate-card"><div class="rate-karat">18K Gold</div><div class="rate-val" id="rate-dubai-18">—</div><div class="rate-unit">per gram</div></div>
+      </div>
+    </div>
+    <div class="rate-panel" data-panel="usa">
+      <div class="rate-grid">
+        <div class="rate-card"><div class="rate-karat">Spot (XAU)</div><div class="rate-val" id="rate-usa-spot">—</div><div class="rate-unit">per troy oz</div></div>
+        <div class="rate-card"><div class="rate-karat">24K Gold</div><div class="rate-val" id="rate-usa-24">—</div><div class="rate-unit">per gram</div></div>
+        <div class="rate-card"><div class="rate-karat">22K Gold</div><div class="rate-val" id="rate-usa-22">—</div><div class="rate-unit">per gram</div></div>
+      </div>
+    </div>
+    <div class="rate-panel" data-panel="uk">
+      <div class="rate-grid">
+        <div class="rate-card"><div class="rate-karat">Spot (XAU)</div><div class="rate-val" id="rate-uk-spot">—</div><div class="rate-unit">per troy oz</div></div>
+        <div class="rate-card"><div class="rate-karat">24K Gold</div><div class="rate-val" id="rate-uk-24">—</div><div class="rate-unit">per gram</div></div>
+        <div class="rate-card"><div class="rate-karat">22K Gold</div><div class="rate-val" id="rate-uk-22">—</div><div class="rate-unit">per gram</div></div>
+      </div>
+    </div>
+
+    <div class="rate-meta">
+      <span class="rate-dot"></span>
+      <span id="rate-status">Fetching live spot price…</span>
+    </div>
+    <p class="rate-disclaimer">Indicative rates based on live international spot gold price. Actual showroom rates may include local taxes and may vary slightly. Call us for the exact rate of the day.</p>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="bestsellers" id="bestsellers">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Bestsellers</p>
+    <h2 class="section-title">Loved by <em>Our Customers</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="products-row stagger">
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?w=500&q=80" alt="Bridal Necklace Set"/>
+        <span class="product-badge">Bestseller</span>
+      </div>
+      <div class="product-name">Bridal Necklace Set</div>
+      <div class="product-meta">22K Gold · Handcrafted</div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1629224316810-9d8805b95e76?w=500&q=80" alt="Solitaire Diamond Ring"/>
+        <span class="product-badge">New Arrival</span>
+      </div>
+      <div class="product-name">Solitaire Diamond Ring</div>
+      <div class="product-meta">Certified · IGI Graded</div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&q=80" alt="Kada Bracelet"/>
+      </div>
+      <div class="product-name">Classic Gold Kada</div>
+      <div class="product-meta">22K Gold · 20g Approx</div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&q=80" alt="Diamond Stud Earrings"/>
+        <span class="product-badge">Popular</span>
+      </div>
+      <div class="product-name">Diamond Stud Earrings</div>
+      <div class="product-meta">Certified Diamonds · 18K</div>
+    </div>
+  </div>
+  <div class="products-cta">
+    <a href="#contact" class="btn-primary">Visit Store to See Full Collection</a>
+  </div>
+</section>
+
+<!-- GOLD PURITY BANNER -->
+<section class="purity-banner reveal" id="purity">
+  <div class="purity-left">
+    <div class="purity-karat">22<span>KT</span></div>
+    <div class="purity-title">The Gold Standard.<br>Nothing Less.</div>
+  </div>
+  <div class="purity-right">
+    <p>At Narjot Jewellers, we deal exclusively in 22 Karat BIS Hallmarked gold — the purest grade trusted for gifting, investment, and bridal jewellery across Punjab. Every piece is weighed and priced transparently based on daily market rates.</p>
+    <div class="purity-features">
+      <div class="purity-feat">BIS Hallmarked on every piece</div>
+      <div class="purity-feat">Daily market rate pricing — no hidden charges</div>
+      <div class="purity-feat">Diamonds certified by trusted labs</div>
+      <div class="purity-feat">Old gold exchange accepted</div>
+      <div class="purity-feat">Custom jewellery crafted to order</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOLD EXCHANGE -->
+<section class="exchange" id="exchange">
+  <div class="exchange-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Exchange Programme</p>
+      <h2 class="section-title" style="text-align:left;">Trade In Your <em>Old Gold</em></h2>
+      <div class="section-rule" style="margin-left:0;"></div>
+      <div class="exchange-steps">
+        <div class="ex-step">
+          <div class="ex-step-num">1</div>
+          <div>
+            <div class="ex-step-title">Bring it in</div>
+            <div class="ex-step-desc">Bring any old gold jewellery, coins, or scraps to our store — broken or outdated pieces welcome.</div>
+          </div>
+        </div>
+        <div class="ex-step">
+          <div class="ex-step-num">2</div>
+          <div>
+            <div class="ex-step-title">Free purity check</div>
+            <div class="ex-step-desc">Our certified team weighs and tests the purity in front of you, with zero obligation.</div>
+          </div>
+        </div>
+        <div class="ex-step">
+          <div class="ex-step-num">3</div>
+          <div>
+            <div class="ex-step-title">Adjust against new purchase</div>
+            <div class="ex-step-desc">The exchange value is credited instantly toward any new piece — plus a bonus during offer months.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-calc reveal">
+      <h3>Estimate Your Exchange Value</h3>
+      <div class="ex-field">
+        <label>Weight of Old Gold (grams)</label>
+        <input type="number" id="ex-weight" placeholder="e.g. 20" min="0" step="0.1">
+      </div>
+      <div class="ex-field">
+        <label>Purity</label>
+        <select id="ex-purity">
+          <option value="24">24K (99.9%)</option>
+          <option value="22" selected>22K (91.6%)</option>
+          <option value="18">18K (75%)</option>
+        </select>
+      </div>
+      <button class="btn-primary" style="width:100%;" id="ex-calc-btn">Calculate Value</button>
+      <div class="ex-result">
+        <div class="ex-result-lbl">Estimated Exchange Value</div>
+        <div class="ex-result-val" id="ex-result-val">₹0</div>
+      </div>
+      <p class="ex-note">Based on today's live gold rate. Final value confirmed in-store after a physical purity check. Deductions for stones/wastage may apply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIRTUAL TRY-ON -->
+<section class="tryon" id="tryon">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">See It On You</p>
+    <h2 class="section-title">Virtual <em>Try-On</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="tryon-inner reveal">
+    <div class="tryon-stage" id="tryon-stage">
+      <div class="tryon-placeholder" id="tryon-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        Upload a photo to try on jewellery
+      </div>
+      <input type="file" id="tryon-file" accept="image/*" style="display:none;">
+      <button class="tryon-upload-btn" id="tryon-upload-btn">Upload Your Photo</button>
+    </div>
+    <div class="tryon-panel">
+      <p class="lead">Upload a clear photo and drag a piece onto it to preview how it looks — resize and reposition freely. For a full live camera try-on experience, ask us about adding our AR partner integration.</p>
+      <div class="tryon-thumbs" id="tryon-thumbs">
+        <div class="tryon-thumb active" data-piece="necklace"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&q=80" alt="Necklace"></div>
+        <div class="tryon-thumb" data-piece="earrings"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&q=80" alt="Earrings"></div>
+        <div class="tryon-thumb" data-piece="ring"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&q=80" alt="Ring"></div>
+        <div class="tryon-thumb" data-piece="bangle"><img src="https://images.unsplash.com/photo-1601121141461-9d6647bef0a1?w=200&q=80" alt="Bangle"></div>
+      </div>
+      <div class="tryon-controls">
+        <label>Size <span id="tryon-size-val">130px</span></label>
+        <input type="range" id="tryon-size" min="60" max="260" value="130">
+        <label>Opacity <span id="tryon-opacity-val">100%</span></label>
+        <input type="range" id="tryon-opacity" min="30" max="100" value="100">
+      </div>
+      <div class="tryon-actions">
+        <button class="btn-outline" id="tryon-reset" style="border-color:rgba(232,201,122,0.4);color:#fff;">Reset</button>
+        <a href="#contact" class="btn-primary">Book In-Store Try-On</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why reveal" id="why">
+  <div class="section-header">
+    <p class="section-eyebrow">Why Choose Us</p>
+    <h2 class="section-title">A Name Families <em>Trust</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="why-grid stagger">
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="20" stroke="#C8973A" stroke-width="1.5"/>
+        <path d="M14 22l6 6 10-12" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="why-title">Certified Purity</div>
+      <div class="why-desc">Every gram of gold we sell carries an official BIS hallmark, so you always know exactly what you're getting.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+        <path d="M22 6l4 12h12l-10 7 4 12-10-7-10 7 4-12L6 18h12z" stroke="#C8973A" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <div class="why-title">Trusted Craftsmanship</div>
+      <div class="why-desc">Decades of heritage jewellery-making passed down through generations — each piece is crafted with heart and precision.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+        <rect x="8" y="10" width="28" height="24" rx="2" stroke="#C8973A" stroke-width="1.5"/>
+        <path d="M14 22h16M14 28h10" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M8 16h28" stroke="#C8973A" stroke-width="1.5"/>
+      </svg>
+      <div class="why-title">Transparent Pricing</div>
+      <div class="why-desc">We follow daily gold market rates with zero hidden charges. What you see is exactly what you pay.</div>
+    </div>
+    <div class="why-card">
+      <svg class="why-icon" viewBox="0 0 44 44" fill="none">
+        <path d="M22 8c-7.7 0-14 6.3-14 14s6.3 14 14 14 14-6.3 14-14" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M30 10v8h8" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 16v6l4 2" stroke="#C8973A" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="why-title">Gold Exchange</div>
+      <div class="why-desc">Trade in your old gold jewellery at fair market rates. We make it simple, fair, and instant — no questions asked.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal">
+  <div class="section-header">
+    <p class="section-eyebrow">Customer Stories</p>
+    <h2 class="section-title">Words from Our <em>Patrons</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="testi-grid stagger">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">We bought the entire bridal set for my daughter's wedding here. The quality of gold and craftsmanship was absolutely outstanding. Families in our village have trusted Narjot Jewellers for generations.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-name">Harpreet Kaur, Patiala</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I purchased a diamond ring for my wife's anniversary. The stone is certified and the setting is exquisite. Very fair pricing and no pressure. Highly recommend visiting their store.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-name">Gurdeep Singh, Nabha</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Got a custom gold bracelet made exactly to my design. They matched every detail perfectly and delivered on time before Diwali. The team is patient, knowledgeable, and genuinely helpful.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-name">Simran Dhaliwal, Rajpura</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT US -->
+<section class="visit reveal" id="contact">
+  <div class="section-header">
+    <p class="section-eyebrow">Find Us</p>
+    <h2 class="section-title">Come <em>Visit</em> Our Store</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="visit-inner">
+    <div class="visit-info">
+      <p>We warmly welcome you to our showroom in Dandrala Kharoud, where you can explore our full collection of gold and diamond jewellery in person, try on pieces, and speak directly with our experienced team.</p>
+      <div class="contact-rows">
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <div class="contact-row-label">Address</div>
+            <div class="contact-row-val">Village Dandrala Kharoud, Dittupur Jattan<br>Patiala, Punjab — 147104</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <div class="contact-row-label">Phone</div>
+            <div class="contact-row-val"><a href="tel:+919878385020">+91 9878385020</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <div class="contact-row-label">Store Hours</div>
+            <div class="contact-row-val">Mon – Sat: 10:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <div class="contact-row-label">WhatsApp</div>
+            <div class="contact-row-val"><a href="https://wa.me/919878385020" target="_blank">Chat with us on WhatsApp →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55212.62!2d76.42!3d30.24!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPatiala%2C%20Punjab%20147104!5e0!3m2!1sen!2sin!4v1"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <a href="https://wa.me/919878385020" class="btn-primary" target="_blank" style="width:100%;display:block;text-align:center;">
+          📞 &nbsp; Call or WhatsApp to Book a Visit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="name">Narjot Jewellers</div>
+      <div class="tagline">Since 1979 · Pure Gold · Certified Diamonds · Punjab</div>
+      <p>Trusted by families across Punjab for generations. Every piece we craft carries the promise of purity, beauty, and lasting value.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Collections</div>
+      <ul>
+        <li><a href="#collections">Gold Necklaces</a></li>
+        <li><a href="#collections">Diamond Rings</a></li>
+        <li><a href="#collections">Gold Bracelets</a></li>
+        <li><a href="#collections">Gold Hoops</a></li>
+        <li><a href="#collections">Bangles & Sets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul>
+        <li><a href="#contact">Custom Jewellery</a></li>
+        <li><a href="#exchange">Gold Exchange</a></li>
+        <li><a href="#tryon">Virtual Try-On</a></li>
+        <li><a href="#purity">Hallmarking Info</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contact</div>
+      <ul>
+        <li><a href="tel:+919878385020">+91 9878385020</a></li>
+        <li><a href="https://wa.me/919878385020" target="_blank">WhatsApp Us</a></li>
+        <li><a href="#contact">Dandrala Kharoud, Patiala</a></li>
+        <li><a href="#contact">Punjab – 147104</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Narjot Jewellers. All rights reserved.</span>
+    <span>Designed with ♥ for the families of Punjab</span>
+    <span>Village Dandrala Kharoud · Patiala · 147104</span>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 10 ? '0 2px 24px rgba(14,13,11,0.08)' : 'none';
+  });
+
+  /* ───────── SCROLL REVEAL (Apple-style) ───────── */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-scale, .stagger');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* ───────── SUBTLE HERO PARALLAX ───────── */
+  const mosaic = document.querySelector('.hero-mosaic');
+  if (mosaic) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        mosaic.style.transform = `translateY(${y * 0.12}px) scale(${1 + Math.min(y * 0.0002, 0.06)})`;
+      }
+    }, { passive: true });
+  }
+
+  /* ───────── GOLD RATE TABS ───────── */
+  document.querySelectorAll('.rate-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.rate-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.rate-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.rate-panel[data-panel="${tab.dataset.market}"]`).classList.add('active');
+    });
+  });
+
+  /* ───────── LIVE GOLD RATE FETCH ─────────
+     Uses gold-api.com (free, no key, CORS enabled) for live spot XAU/USD,
+     then derives indicative rates per karat/market using approximate FX.
+     Falls back to last-known static rates if the fetch fails (e.g. offline). */
+  const FX = { usdInr: 86.5, usdAed: 3.6725, usdGbp: 0.79 };
+  const GRAMS_PER_OZ = 31.1035;
+  let livePricePerGramUSD = null;
+
+  function fmt(n, decimals = 0) {
+    return n.toLocaleString('en-IN', { maximumFractionDigits: decimals, minimumFractionDigits: decimals });
+  }
+
+  function renderRates(pricePerGramUSD) {
+    const karatFactor = { 24: 1, 22: 0.916, 18: 0.75 };
+
+    // India — ₹ per 10g
+    const inrPerGram24 = pricePerGramUSD * FX.usdInr;
+    document.getElementById('rate-india-24').innerHTML = '₹' + fmt(inrPerGram24 * 10);
+    document.getElementById('rate-india-22').innerHTML = '₹' + fmt(inrPerGram24 * karatFactor[22] * 10);
+    document.getElementById('rate-india-18').innerHTML = '₹' + fmt(inrPerGram24 * karatFactor[18] * 10);
+
+    // Dubai — AED per gram
+    const aedPerGram24 = pricePerGramUSD * FX.usdAed;
+    document.getElementById('rate-dubai-24').innerHTML = 'AED ' + fmt(aedPerGram24, 2);
+    document.getElementById('rate-dubai-22').innerHTML = 'AED ' + fmt(aedPerGram24 * karatFactor[22], 2);
+    document.getElementById('rate-dubai-18').innerHTML = 'AED ' + fmt(aedPerGram24 * karatFactor[18], 2);
+
+    // USA — $ per oz / gram
+    document.getElementById('rate-usa-spot').innerHTML = '$' + fmt(pricePerGramUSD * GRAMS_PER_OZ, 2);
+    document.getElementById('rate-usa-24').innerHTML = '$' + fmt(pricePerGramUSD, 2);
+    document.getElementById('rate-usa-22').innerHTML = '$' + fmt(pricePerGramUSD * karatFactor[22], 2);
+
+    // UK — £ per oz / gram
+    const gbpPerGram24 = pricePerGramUSD * FX.usdGbp;
+    document.getElementById('rate-uk-spot').innerHTML = '£' + fmt(gbpPerGram24 * GRAMS_PER_OZ, 2);
+    document.getElementById('rate-uk-24').innerHTML = '£' + fmt(gbpPerGram24, 2);
+    document.getElementById('rate-uk-22').innerHTML = '£' + fmt(gbpPerGram24 * karatFactor[22], 2);
+
+    livePricePerGramUSD = pricePerGramUSD;
+  }
+
+  async function fetchGoldRate() {
+    const statusEl = document.getElementById('rate-status');
+    try {
+      const res = await fetch('https://api.gold-api.com/price/XAU');
+      if (!res.ok) throw new Error('Rate fetch failed');
+      const data = await res.json();
+      const pricePerOzUSD = data.price;
+      const pricePerGramUSD = pricePerOzUSD / GRAMS_PER_OZ;
+      renderRates(pricePerGramUSD);
+      statusEl.textContent = 'Live · updated ' + new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    } catch (err) {
+      // Fallback static indicative price if API is unreachable
+      renderRates(98.5); // ~ $98.5/gram fallback
+      statusEl.textContent = 'Showing last known rate — reconnect to refresh live';
+    }
+  }
+  fetchGoldRate();
+  setInterval(fetchGoldRate, 5 * 60 * 1000); // refresh every 5 min
+
+  /* ───────── MONTHLY OFFERS COUNTDOWN ───────── */
+  function updateCountdowns() {
+    const now = new Date();
+    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const diff = endOfMonth - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.querySelectorAll('[data-countdown]').forEach(el => {
+      el.innerHTML = `
+        <div><div class="cd-num">${days}</div><div class="cd-lbl">Days</div></div>
+        <div><div class="cd-num">${hours}</div><div class="cd-lbl">Hours</div></div>
+        <div><div class="cd-num">Left</div><div class="cd-lbl">This Offer</div></div>`;
+    });
+  }
+  updateCountdowns();
+  setInterval(updateCountdowns, 60 * 1000);
+
+  /* ───────── GOLD EXCHANGE CALCULATOR ───────── */
+  document.getElementById('ex-calc-btn').addEventListener('click', () => {
+    const weight = parseFloat(document.getElementById('ex-weight').value) || 0;
+    const purity = parseInt(document.getElementById('ex-purity').value);
+    const karatFactor = { 24: 1, 22: 0.916, 18: 0.75 };
+    const base = livePricePerGramUSD || 98.5;
+    const inrPerGram24 = base * FX.usdInr;
+    const value = weight * inrPerGram24 * karatFactor[purity];
+    document.getElementById('ex-result-val').textContent = '₹' + fmt(value);
+  });
+
+  /* ───────── VIRTUAL TRY-ON ───────── */
+  const tryonStage = document.getElementById('tryon-stage');
+  const tryonFile = document.getElementById('tryon-file');
+  const tryonUploadBtn = document.getElementById('tryon-upload-btn');
+  const tryonPlaceholder = document.getElementById('tryon-placeholder');
+  let tryonOverlayEl = null;
+  let tryonPhotoEl = null;
+
+  const PIECE_IMAGES = {
+    necklace: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&q=80',
+    earrings: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&q=80',
+    ring: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&q=80',
+    bangle: 'https://images.unsplash.com/photo-1601121141461-9d6647bef0a1?w=300&q=80',
+  };
+  let currentPiece = 'necklace';
+
+  tryonUploadBtn.addEventListener('click', () => tryonFile.click());
+
+  tryonFile.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      tryonPlaceholder.style.display = 'none';
+      if (!tryonPhotoEl) {
+        tryonPhotoEl = document.createElement('img');
+        tryonPhotoEl.className = 'tryon-photo';
+        tryonStage.insertBefore(tryonPhotoEl, tryonStage.firstChild);
+      }
+      tryonPhotoEl.src = ev.target.result;
+      tryonUploadBtn.textContent = 'Change Photo';
+      placeOverlay();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function placeOverlay() {
+    if (!tryonOverlayEl) {
+      tryonOverlayEl = document.createElement('div');
+      tryonOverlayEl.className = 'tryon-overlay';
+      const img = document.createElement('img');
+      tryonOverlayEl.appendChild(img);
+      tryonStage.appendChild(tryonOverlayEl);
+      makeDraggable(tryonOverlayEl);
+      tryonOverlayEl.style.left = '50%';
+      tryonOverlayEl.style.top = '55%';
+      tryonOverlayEl.style.transform = 'translate(-50%, -50%)';
+    }
+    tryonOverlayEl.querySelector('img').src = PIECE_IMAGES[currentPiece];
+    tryonOverlayEl.style.display = 'block';
+  }
+
+  document.querySelectorAll('.tryon-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      document.querySelectorAll('.tryon-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      currentPiece = thumb.dataset.piece;
+      if (tryonPhotoEl) placeOverlay();
+    });
+  });
+
+  function makeDraggable(el) {
+    let dragging = false, offsetX = 0, offsetY = 0;
+    const start = (clientX, clientY) => {
+      dragging = true;
+      const rect = el.getBoundingClientRect();
+      offsetX = clientX - rect.left - rect.width / 2;
+      offsetY = clientY - rect.top - rect.height / 2;
+    };
+    const move = (clientX, clientY) => {
+      if (!dragging) return;
+      const stageRect = tryonStage.getBoundingClientRect();
+      const x = clientX - stageRect.left - offsetX;
+      const y = clientY - stageRect.top - offsetY;
+      el.style.left = x + 'px';
+      el.style.top = y + 'px';
+      el.style.transform = 'translate(-50%, -50%)';
+    };
+    const end = () => { dragging = false; };
+
+    el.addEventListener('mousedown', (e) => start(e.clientX, e.clientY));
+    window.addEventListener('mousemove', (e) => move(e.clientX, e.clientY));
+    window.addEventListener('mouseup', end);
+    el.addEventListener('touchstart', (e) => { const t = e.touches[0]; start(t.clientX, t.clientY); }, { passive: true });
+    window.addEventListener('touchmove', (e) => { const t = e.touches[0]; move(t.clientX, t.clientY); }, { passive: true });
+    window.addEventListener('touchend', end);
+  }
+
+  const sizeSlider = document.getElementById('tryon-size');
+  const opacitySlider = document.getElementById('tryon-opacity');
+  sizeSlider.addEventListener('input', () => {
+    document.getElementById('tryon-size-val').textContent = sizeSlider.value + 'px';
+    if (tryonOverlayEl) tryonOverlayEl.style.width = sizeSlider.value + 'px';
+  });
+  opacitySlider.addEventListener('input', () => {
+    document.getElementById('tryon-opacity-val').textContent = opacitySlider.value + '%';
+    if (tryonOverlayEl) tryonOverlayEl.style.opacity = opacitySlider.value / 100;
+  });
+  document.getElementById('tryon-reset').addEventListener('click', () => {
+    if (tryonOverlayEl) {
+      tryonOverlayEl.style.left = '50%';
+      tryonOverlayEl.style.top = '55%';
+      tryonOverlayEl.style.transform = 'translate(-50%, -50%)';
+      sizeSlider.value = 130; opacitySlider.value = 100;
+      tryonOverlayEl.style.width = '130px';
+      tryonOverlayEl.style.opacity = 1;
+      document.getElementById('tryon-size-val').textContent = '130px';
+      document.getElementById('tryon-opacity-val').textContent = '100%';
+    }
+  });
+</script>
+</body>
+</html>
